@@ -3,3 +3,14 @@ mounts:
     target: layouts
   - source: node_modules/@hyas/images/layouts
     target: layouts
+
+  # Declaring any static mount drops Hugo's default one, so re-declare it.
+  - source: static
+    target: static
+
+  # Font Awesome 7 ships prebuilt CSS that points at ../webfonts, so css/ and
+  # webfonts/ have to stay siblings under the same parent.
+  - source: node_modules/@fortawesome/fontawesome-free/css
+    target: static/fontawesome/css
+  - source: node_modules/@fortawesome/fontawesome-free/webfonts
+    target: static/fontawesome/webfonts

@@ -2,10 +2,9 @@
 @import "slick";
 @import "magnific-popup";
 
-// TODO: Use SVG icons instead of web fonts to reduce page size
-$fa-font-path: "font-awesome/fonts";
-
-@import "font-awesome/scss/font-awesome";
+// Font Awesome 7 is not imported here. Its SCSS is @use-only and needs Dart
+// Sass, but this pipeline runs LibSass. It is loaded as prebuilt CSS instead,
+// see layouts/partials/head/stylesheet.html.
 @import "variables";
 @import "bootstrap/scss/bootstrap";
 @import "typography";

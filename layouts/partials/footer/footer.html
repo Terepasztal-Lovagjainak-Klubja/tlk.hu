@@ -71,16 +71,16 @@
           <ul class="fa-ul small">
             <li class="mb-2">
               <a class="text-light" href="tel:{{ $address.phone }}"
-                ><span class="fa-li"><i class="fa fa-phone"></i></span>{{ $address.phone }}</a
+                ><span class="fa-li"><i class="fa-solid fa-phone"></i></span>{{ $address.phone }}</a
               >
             </li>
             <li class="mb-2">
               <a class="text-light" href="mailto:{{ $address.email }}"
-                ><span class="fa-li"><i class="fa fa-envelope"></i></span>{{ $address.email }}</a
+                ><span class="fa-li"><i class="fa-solid fa-envelope"></i></span>{{ $address.email }}</a
               >
             </li>
             <li class="mb-2">
-              <span class="fa-li"><i class="fa fa-map-marker"></i></span>{{ $address.address }}
+              <span class="fa-li"><i class="fa-solid fa-location-dot"></i></span>{{ $address.address }}
             </li>
           </ul>
         </div>
@@ -101,7 +101,9 @@
             {{ $social := .Site.Params.social }}
             {{ range $social }}
               <li class="d-inline-block mx-2">
-                <a class="text-light" target="_blank" href="{{ .url }}"><i class="fa {{ .icon }}"></i></a>
+                <a class="text-light" target="_blank" href="{{ .url }}" aria-label="{{ .label | default .icon }}"
+                  ><i class="{{ .icon }}"></i
+                ></a>
               </li>
             {{ end }}
           </ul>

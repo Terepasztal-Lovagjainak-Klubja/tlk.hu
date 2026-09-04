@@ -61,10 +61,13 @@ map:
   longitude: "19.053109"
   pinImage: images/pin.png
 social:
-  - icon: fa-facebook-official
+  # icon holds the full Font Awesome 7 class, style prefix included.
+  - icon: fa-brands fa-facebook
+    label: Facebook
     url: "https://www.facebook.com/groups/tlk.klub/"
     weight: 1
-  - icon: fa-plus
+  - icon: fa-brands fa-discord
+    label: Discord
     url: "https://discord.com/invite/NykyUFZ"
     weight: 1
 _template: parameters_template

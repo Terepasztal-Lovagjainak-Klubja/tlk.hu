@@ -15,6 +15,7 @@
     "clean": "rm -rf public resources"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
     "@hyas/images": "^0.2.3",
     "bootstrap": "^4.6.2",
     "gsap": "1.20.5",
