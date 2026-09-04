@@ -1,3 +1,3 @@
 ---
-title: "Helmani"
+title: "Terepasztal Lovagjai Klub"
 ---
