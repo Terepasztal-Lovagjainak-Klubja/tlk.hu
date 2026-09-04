@@ -1,0 +1,64 @@
+//
+// Colors
+//
+
+// General
+$primary: #da2129;
+$secondary: #282f49;
+
+// Text
+$headings-color: #282f49;
+$body-color: #7e7e8a;
+
+//
+// Typography
+//
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Courier+Prime:400,500,600,700,800,900|Mystery+Quest|Rubik+Dirt&display=swap");
+
+$font-family-base: "Courier Prime", sans-serif;
+$headings-font-family: "Mystery Quest", cursive;
+$subheading-font-family: "Rubik Dirt", cursive;
+
+// Size
+$font-size-base: 1.125rem; // 18px
+$h1-font-size: 60px;
+$h2-font-size: 50px;
+$h3-font-size: 30px;
+$h4-font-size: 25px;
+$h5-font-size: 22px;
+$h6-font-size: 16px;
+
+// Spacing
+$headings-margin-bottom: 1.5rem;
+$line-height-base: 1.75;
+
+// Misc
+$link-hover-decoration: none;
+
+
+// Discord button
+.footer__cta_action {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #5865F2;
+    border-color: #ffffff;
+    color: #ffffff;
+
+    &:hover {
+      background-color: darken(#5865F2, 8%);
+      border-color: darken(#ffffff, 8%);
+      color: darken(#ffffff, 8%);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+  }
+}

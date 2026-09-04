@@ -1,0 +1,61 @@
+# TODO: use semantic names for data fields
+---
+enable: true
+topTitle: Játékaink
+title: >
+  ## Miket játszhatsz velünk?
+
+  Bármit amihez találsz partnert, de rendszeresen játszunk például ezekkel, vagy bármivel amit hozol magaddal.
+
+
+  Ha érdekel valamelyik játékunk keress ellenfelet [Discordon](https://discord.com/invite/NykyUFZ), vagy foglalj asztalt [Teamupon](https://teamup.com/kscdht4zqd1ma69sig)!
+tab1Name: Wargamek
+tab2Name: Szerepjátékok
+tab1Target: education
+tab2Target: experience
+
+education:
+  - content: >
+      #### SAGA
+
+      Történelmi skirmish wargame, különböző korok seregeivel.
+    image: /images/certificates/SAGA_Logo.png
+    url: https://www.grippingbeast.co.uk/SAGA_Products--category--10.html
+  - content: >
+      #### Warhammer: The Old World
+
+      A nagy klasszikus új köntösben.
+    image: /images/certificates/WHAOS_logo_shadow_colour_2.png
+    url: https://www.warhammer.com/en-EU/explore/the-old-world
+  - content: >
+      #### Warhammer 40,000
+
+      A távoli jövő komor sötétségében csak háború van.
+    image: /images/certificates/40k_Logo_Colour_1.webp
+    url: https://www.warhammer.com/en-EU/explore/warhammer-40000
+  - content: >
+      #### Moonstone
+
+      Pörgős csapat alapú fantasy játék akár négy főre is.
+    image: /images/certificates/MoonstoneLogo300.png
+    url: https://www.moonstonethegame.com/
+
+experience:
+  - content: >
+      #### Umbrella co.
+
+      Lorem ipsum dolor sit amet conset sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+    image: /images/certificates/Organic.png
+    url: https://trustseal.enamad.ir/?id=288479&Code=O8micNNDSNWcTh9xIOhQ
+  - content: >
+      #### Aperture Science
+
+      Lorem ipsum dolor sit amet conset sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+    image: /images/certificates/enamad.png
+    url: https://trustseal.enamad.ir/?id=288479&Code=O8micNNDSNWcTh9xIOhQ
+  - content: >
+      #### ACME Inc.
+
+      Lorem ipsum dolor sit amet conset sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+    image: /images/certificates/halal.jpg
+    url: https://trustseal.enamad.ir/?id=288479&Code=O8micNNDSNWcTh9xIOhQ

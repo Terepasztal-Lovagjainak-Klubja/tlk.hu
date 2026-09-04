@@ -1,0 +1,9 @@
+baseURL: "http://localhost:1313/"
+languageCode: hu-hu
+title: TLK - Terepasztal Lovagjainak Klubja
+theme: "corporio"
+paginate: 6
+outputs:
+  home:
+    - HTML
+    - RSS

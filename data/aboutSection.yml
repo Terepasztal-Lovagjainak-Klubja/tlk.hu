@@ -1,0 +1,25 @@
+enable: true
+topTitle: Rólunk
+title: >
+  ## Kik is vagyunk?
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+content: >
+  ### Személyi jövedelemadó 1% felajánlása
+
+  Kedves Olvasóink, Támogatóink, Szimpatizánsaink és Klubtagjaink!
+
+
+  Kérnénk Mindenkit tisztelettel, hogy felajánlásával támogassa szerény Egyesületünket, hogy továbbra is ki tudjuk fejteni áldásos tevékenységünket.
+
+
+  **Adószámunk: 18258813-1-43**
+
+
+  *Köszönettel, a TLK Egyesület Elnöksége!*
+button1Name: Kapcsolat
+button1Target: contact
+button2Name: Az egyesület éves beszámolói
+button2Target: blog
+image: images/about/walnuttree.jpg
+_template: about_template

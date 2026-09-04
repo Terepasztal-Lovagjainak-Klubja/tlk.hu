@@ -1,0 +1,13 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: default-src 'self'; manifest-src 'self'; connect-src 'self'; font-src 'self' fonts.gstatic.com; img-src 'self' data:; script-src 'self' www.googletagmanager.com unpkg.com cdn.jsdelivr.net 'nonce-dXNlcj0iaGVsbG8iLGRvbWFpbj0iaGVua3ZlcmxpbmRlLmNvbSIsZG9jdW1lbnQud3JpdGUodXNlcisiQCIrZG9tYWluKTs=' 'sha256-aWZ3y/RxbBYKHXH0z8+8ljrHG1mSBvyzSfxSMjBSaXk='; style-src 'self' fonts.googleapis.com 'unsafe-inline'
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin
+  Feature-Policy: geolocation 'self'
+  Cache-Control: public, max-age=2592000
+  Access-Control-Allow-Origin: *
+
+/admin/*
+  Content-Security-Policy: "default-src *  data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval' 'unsafe-dynamic';  script-src * data: blob: 'unsafe-inline' 'unsafe-eval';  connect-src * data: blob: 'unsafe-inline';  img-src * data: blob: 'unsafe-inline';  frame-src * data: blob: ;  style-src * data: blob: 'unsafe-inline'; font-src * data: blob: 'unsafe-inline'; frame-ancestors * data: blob: 'unsafe-inline';"

@@ -1,0 +1,32 @@
+@import "bootstrap/scss/functions";
+@import "slick";
+@import "magnific-popup";
+
+// TODO: Use SVG icons instead of web fonts to reduce page size
+$fa-font-path: "font-awesome/fonts";
+
+@import "font-awesome/scss/font-awesome";
+@import "variables";
+@import "bootstrap/scss/bootstrap";
+@import "typography";
+@import "mixins";
+@import "buttons";
+@import "common";
+@import "components/alerts";
+@import "components/preloder";
+@import "components/navbar";
+@import "components/hero-section";
+@import "components/about-section";
+@import "components/service-section";
+@import "components/product-section";
+@import "components/resume-section";
+@import "components/skill-section";
+@import "components/testimonial-section";
+@import "components/blog-section";
+@import "components/footer-section";
+@import "components/blog";
+@import "components/single-blog-post";
+@import "components/page-title";
+@import "components/contact";
+@import "components/case_details";
+@import "components/error-page";

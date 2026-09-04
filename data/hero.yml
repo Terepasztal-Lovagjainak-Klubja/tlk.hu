@@ -1,0 +1,16 @@
+enable: true
+topTitle: TLK
+content: >
+  # Terepasztal Lovagjainak Klubja
+
+
+  *Klub - Közösség - Egyesület*
+
+
+  Budapest és Magyarország legrégebbi wargame / társasjáték / szerepjáték klubja, ahol az úri közönség kényelmesen játszik, beszélget, sörözget.
+buttonName: Kapcsolat
+buttonURL: contact
+image: images/hero/bg.webp
+videoThumb: images/hero/logo.webp
+videoURL: "https://youtu.be/qurqhSXKES8"
+_template: hero_template

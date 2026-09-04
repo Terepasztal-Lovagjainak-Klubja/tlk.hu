@@ -1,0 +1,35 @@
+main:
+  - name: Kezdőlap
+    url: ""
+    weight: 1
+  - name: Közösség
+    url: "#service"
+    weight: 2
+  - name: Játékaink
+    url: "#resume"
+    weight: 3
+  - name: Rólunk
+    url: "#about"
+    weight: 4
+  - name: Galéria
+    url: "#product"
+    weight: 5
+  - name: Rajongók
+    url: "#testimonial"
+    weight: 6
+  - name: Egyesület
+    url: "#blog"
+    weight: 7
+sitemap:
+  - name: Kezdőlap
+    url: ""
+    weight: 1
+  - name: Kapcsolat
+    url: "contact"
+    weight: 2
+  - name: Products
+    url: "product"
+    weight: 3
+  - name: Blog
+    url: "blog"
+    weight: 4

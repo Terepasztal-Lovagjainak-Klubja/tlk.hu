@@ -1,0 +1,3 @@
+[submodule "themes/corporio"]
+	path = themes/corporio
+	url = https://github.com/AminZibayi/Corporio.git
