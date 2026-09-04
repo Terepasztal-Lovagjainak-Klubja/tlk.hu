@@ -1,7 +1,42 @@
-<meta name="theme-color" content="{{ $.Site.Params.themeColor }}" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}" />
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | absURL }}" />
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | absURL }}" />
-<link rel="icon" type="image/ico" sizes="32x32" href="{{ "/favicon.ico" | absURL }}" />
-<link rel="manifest" href="{{ "/site.webmanifest" | absURL }}" />
-<link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5" />
+{{- /* All icons are generated from one source image. Swap that file and every
+  size below follows. The logo is 60x71, so it is padded out to a square first
+  rather than cropped, which would cut the helmet. */ -}}
+{{- $logo := resources.Get "images/site-navigation/logo.png" -}}
+{{- if not $logo -}}
+  {{- errorf "favicons.html: images/site-navigation/logo.png not found in assets" -}}
+{{- end -}}
+
+{{- /* 60x71 -> 71x71, transparent, so tab bars show through in either theme. */ -}}
+{{- $square := $logo | images.Filter (images.Padding 0 6 0 5) -}}
+
+{{- /* 60x71 -> 83x83 on white. iOS and Android render transparency as black,
+  and the extra ring keeps the helmet off the edge of the rounded mask. */ -}}
+{{- $squareOpaque := $logo | images.Filter (images.Padding 6 12 6 11 "#ffffff") -}}
+
+{{- $favicon32 := $square.Resize "32x32 png" | resources.Copy "/icons/favicon-32x32.png" -}}
+{{- $favicon16 := $square.Resize "16x16 png" | resources.Copy "/icons/favicon-16x16.png" -}}
+{{- $appleTouch := $squareOpaque.Resize "180x180 png" | resources.Copy "/icons/apple-touch-icon.png" -}}
+{{- $icon192 := $squareOpaque.Resize "192x192 png" | resources.Copy "/icons/icon-192x192.png" -}}
+{{- $icon512 := $squareOpaque.Resize "512x512 png" | resources.Copy "/icons/icon-512x512.png" -}}
+
+{{- /* Generated alongside the icons so the two can never drift apart. */ -}}
+{{- $manifest := dict
+  "name" site.Title
+  "short_name" site.Params.titleAddition
+  "icons" (slice
+    (dict "src" $icon192.RelPermalink "sizes" "192x192" "type" "image/png")
+    (dict "src" $icon512.RelPermalink "sizes" "512x512" "type" "image/png")
+  )
+  "theme_color" site.Params.themeColor
+  "background_color" "#ffffff"
+  "display" "standalone"
+-}}
+{{- /* Published under /icons/ on purpose: both the project and the theme ship a
+  stale static /site.webmanifest, and writing to that path would be a race. */ -}}
+{{- $manifestFile := $manifest | jsonify | resources.FromString "icons/site.webmanifest" -}}
+
+<meta name="theme-color" content="{{ site.Params.themeColor }}" />
+<link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ $appleTouch.RelPermalink }}" />
+<link rel="manifest" href="{{ $manifestFile.RelPermalink }}" />
