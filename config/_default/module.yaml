@@ -1,3 +1,6 @@
+imports:
+  - path: github.com/mfg92/hugo-shortcode-gallery
+
 mounts:
   - source: layouts
     target: layouts

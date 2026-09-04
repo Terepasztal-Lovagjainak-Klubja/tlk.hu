@@ -44,21 +44,10 @@
             {{ $img := $asset.Resize "1000x webp" }}
             <img src="{{ $img.RelPermalink }}" alt="case-details" />
           </div>
+          {{/* Galleries come from the {{< gallery >}} shortcode in the page
+            body (github.com/mfg92/hugo-shortcode-gallery), which reads a whole
+            directory instead of a hand-written front matter list. */}}
           {{ .Content }}
-          {{ with .Params.gallery }}
-            <div class="product-gallery row mb-5">
-              {{ range . }}
-                {{ $galleryAsset := resources.Get . }}
-                {{ $thumb := $galleryAsset.Resize "400x webp" }}
-                {{ $full := $galleryAsset.Resize "1600x webp" }}
-                <div class="col-4 mb-4">
-                  <a href="{{ $full.RelPermalink }}" class="product-gallery-item popup-image">
-                    <img src="{{ $thumb.RelPermalink }}" alt="product gallery image" />
-                  </a>
-                </div>
-              {{ end }}
-            </div>
-          {{ end }}
         </div>
       </div>
       <div class="row">
