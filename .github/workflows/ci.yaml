@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # The Corporio theme is a submodule (.gitmodules), and the site config
+      # sets theme: corporio.
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          submodules: 'recursive'
+
+      # Hugo modules are Go modules: config/_default/module.yaml imports
+      # hugo-shortcode-gallery, which Hugo fetches through the Go toolchain.
+      # setup-go caches by go.sum, so that download is cached too.
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # Pinned to match mise.toml. go.mod pins the gallery module to v1.3.0 for
+      # the flip side of the same constraint: v1.4.0+ needs Hugo >= 0.156.0.
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.139.0'
+          extended: true
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/Krypton
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      # Must run before Hugo. module.yaml mounts @hyas/images layouts and the
+      # Font Awesome css/webfonts straight out of node_modules, and Hugo Pipes
+      # resolves the SCSS/JS imports and the postcss-cli binary from there.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # pnpm build is hugo --gc --minify. No --environment flag needed: hugo
+      # defaults to production, which layers config/production/config.yaml
+      # (baseURL https://tlk.hu/) over config/_default.
+      - name: Build
+        run: pnpm build
