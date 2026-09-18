@@ -9,10 +9,15 @@ title: >
 
 
   Ha érdekel valamelyik játékunk keress ellenfelet [Discordon](https://discord.com/invite/NykyUFZ), vagy foglalj asztalt [Teamupon](https://teamup.com/kscdht4zqd1ma69sig)!
+
+
+  **Napidíj: 500 Ft. Klubtagoknak 3000/hó, korlátlan látogatással.**
 tab1Name: Wargamek
 tab2Name: Szerepjátékok
+tab3Name: Társasjátékok
 tab1Target: education
 tab2Target: experience
+tab3Target: boardgame
 
 education:
   - content: >
@@ -39,23 +44,55 @@ education:
       Pörgős csapat alapú fantasy játék akár négy főre is.
     image: /images/certificates/MoonstoneLogo300.png
     url: https://www.moonstonethegame.com/
+  - content: >
+      #### Star Wars: Shatterpoint
+
+      Star Wars csapatok összecsapása több dimenziós terepen.
+    image: /images/certificates/2025_Adepticon_SWP.png
+    url: https://www.atomicmassgames.com/shatterpoint/
+  - content: >
+      #### Bushido
+
+      Fantasy csaták a Jwar szigeteken.
+    image: /images/certificates/bushido.png
+    url: https://gctstudios.com/pages/bushido
+  - content: >
+      #### Flames of War
+
+      Második világháborús stratégiai játék tankokokkal, egyebekkel.
+    image: /images/certificates/fow.jpeg
+    url: https://www.flamesofwar.com/
+  - content: >
+      #### Gaslands
+
+      Posztapokaliptikus autós csaták, a'la mad max.
+    image: /images/certificates/gaslands.jpg
+    url: https://planetsmashergames.com/gaslands/
 
 experience:
   - content: >
-      #### Umbrella co.
+      #### Dungeons & Dragons
 
-      Lorem ipsum dolor sit amet conset sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-    image: /images/certificates/Organic.png
-    url: https://trustseal.enamad.ir/?id=288479&Code=O8micNNDSNWcTh9xIOhQ
+      A fantasy szerepjátékok alfája és omegája.
+    image: /images/certificates/dnd.jpeg
+    url: https://www.dungeonsanddragons.com/
   - content: >
-      #### Aperture Science
+      #### Daggerheart
 
-      Lorem ipsum dolor sit amet conset sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-    image: /images/certificates/enamad.png
-    url: https://trustseal.enamad.ir/?id=288479&Code=O8micNNDSNWcTh9xIOhQ
+      Narratívabb, történet központúbb fantasy szerepjáték.
+    image: /images/certificates/daggerheart_logo_on_white.png
+    url: https://www.daggerheart.com/
   - content: >
-      #### ACME Inc.
+      #### Pathfinder
 
-      Lorem ipsum dolor sit amet conset sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-    image: /images/certificates/halal.jpg
-    url: https://trustseal.enamad.ir/?id=288479&Code=O8micNNDSNWcTh9xIOhQ
+      Karakter központú, taktikus fantasy szerepjáték.
+    image: /images/certificates/pathfinder.png
+    url: https://paizo.com/pathfinder
+
+boardgame:
+  - content: >
+      #### Blood Bowl
+
+      Vérfoci, a fantasy football legendás játéka.
+    image: /images/certificates/Blood_Bowl_3_Logo.png
+    url: https://www.warhammer.com/en-US/explore/blood-bowl
