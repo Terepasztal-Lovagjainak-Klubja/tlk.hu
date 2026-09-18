@@ -28,12 +28,16 @@
                 <div class="blog-preview__item-thumb">
                   {{ $asset := resources.Get .Params.featureImage }}
                   {{ $img := $asset.Fill "320x370 webp" }}
-                  <img src="{{ $img.RelPermalink }}" alt="post-image" />
+                  {{ $pdf := resources.Get .Params.pdf }}
+                  <a href="{{ $pdf.RelPermalink }}">
+                    <img src="{{ $img.RelPermalink }}" alt="post-image" />
+                  </a>
                 </div>
                 <div class="blog-preview__item-content bg-white">
-                  <span class="small">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                  <span class="small">{{ .PublishDate.Format "2006-01-02" }}</span>
                   <h5 class="mb-0">
-                    <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
+                    {{ $pdf := resources.Get .Params.pdf }}
+                    <a class="text-dark" href="{{ $pdf.RelPermalink }}">{{ .Title }}</a>
                   </h5>
                 </div>
               </div>
@@ -46,6 +50,10 @@
               <a class="btn btn-outline-secondary btn-zoom" href="{{ .buttonTarget | absURL }}">{{ .buttonName }}</a>
             </div>
           </div>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+            {{ $img := resources.Get "images/nea-1.jpg" }}
+            <a href="https://civil.info.hu/nea/kezdolap/bemutatkozas/index.html" target="_blank"><img src="{{ $img.RelPermalink }}"/></a>
         </div>
       </div>
     </section>
