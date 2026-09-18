@@ -27,9 +27,9 @@ sitemap:
   - name: Kapcsolat
     url: "contact"
     weight: 2
-  - name: Products
+  - name: Galéria
     url: "product"
     weight: 3
-  - name: Blog
+  - name: Egyesület
     url: "blog"
     weight: 4

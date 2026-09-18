@@ -1,3 +1,3 @@
 ---
-title: Recents Article
+title: Az egyesület éves pénzügyi beszámolói
 ---

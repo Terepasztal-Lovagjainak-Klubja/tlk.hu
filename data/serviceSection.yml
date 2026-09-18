@@ -3,33 +3,32 @@ topTitle: Közösségi oldalaink
 title: >
   ## Hol találsz meg minket?
 service:
-  - content: >
-      #### Discord
-
-      Elsődleges platformunk a Discord
+  - title: Discord
+    content: >
+        Elsődleges platformunk a Discord
     image: images/service/discord.png
     url: https://discord.com/invite/NykyUFZ
-  - content: >
-      #### Facebook
-
+  
+  - title: Facebook
+    content: >
       Megtalálsz minket Facebookon is
     image: images/service/facebook.png
     url: https://www.facebook.com/groups/tlk.klub/
-  - content: >
-      #### Teamup
-
+  
+  - title: Teamup
+    content: >
       Foglalhatsz asztalt a Teamupon
     image: images/service/teamup.png
     url: https://teamup.com/kscdht4zqd1ma69sig
-  - content: >
-      #### YouTube
-
+  
+  - title: YouTube
+    content: >
       Megnézheted a YouTube csatornánkat
     image: images/service/youtube.png
     url: https://www.youtube.com/channel/UCk5HKPP5b51zj2yT_zAZXlw
-  - content: >
-      #### Email
-
+  
+  - title: Email
+    content: >
       Vagy írhatsz nekünk emailt
     image: images/service/email.png
     url: mailto:example@example.com

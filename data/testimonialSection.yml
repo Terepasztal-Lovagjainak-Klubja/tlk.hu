@@ -2,26 +2,37 @@ enable: true
 topTitle: Rajongók
 title: |
   ## Mit mondanak rólunk?
+
+  [Írj véleményt Google Mapsen!](https://maps.app.goo.gl/EYkZpY4fZ83YT8jj8)
 testimonial:
-  - name: Ryan Cook
+  - name: Balázs Csenkey
     comment: >-
-      Takimata sanctus est lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-      consetur sad ipscing elitr sed diam nonumy eirmod tempor invidunt labore
-      dolore magna.
-    time: "Jan 20, 2020"
+      Kedves kis klub
+    time: "2025-11-17"
     star: 5
-  - name: Justin Trudo
+  - name: András Csaba Horváth
     comment: >-
-      Takimata sanctus est lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-      consetur sad ipscing elitr sed diam nonumy eirmod tempor invidunt labore
-      dolore magna.
-    time: "Jan 16, 2020"
-    star: 4
-  - name: Franky Filth
+      Legjobb wargame klub, ahol valaha jártam. A tagok barátságosak, a napi díj elhanyagolható, van rengeteg terep, wifi és a legkülönfélébb rendszerekre is találsz ellenfelet. Arra érdemes figyelni, hogy nincsenek mindig nyitva, Discordjukról érhető el a foglalási naptár.
+    time: "2025-07-24"
+    star: 5
+  - name: Kristóf Páris
     comment: >-
-      Takimata sanctus est lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-      consetur sad ipscing elitr sed diam nonumy eirmod tempor invidunt labore
-      dolore magna.
-    time: "Mar 08, 2020"
-    star: 3
+      Nagyon király és hangulatos.
+    time: "2022-05-07"
+    star: 5
+  - name:  Tamás Gesztesy
+    comment: >-
+      Jó kis hely. :)
+    time: "2020-09-26"
+    star: 5
+  - name: Gergely Józsa
+    comment: >-
+      Jó hangulat, jó emberekkel lehet együtt lógni.
+    time: "2020-01-30"
+    star: 5
+  - name: Krisztián Mikó
+    comment: >-
+      Nagyon jó társaság, kellemes kikapcsolódás a Tabletop gamereknek és festőknek ;)
+    time: "2019-08-15"
+    star: 5
 _template: testimonial_template

@@ -11,9 +11,10 @@
                 {{ .title | markdownify }}
               </div>
 
-              <div class="btn-group nav mt-5">
+              <div class="btn-group-vertical nav mt-5">
                 <a href="#{{ .tab1Target }}" class="btn btn-primary active" data-toggle="tab">{{ .tab1Name }}</a>
                 <a href="#{{ .tab2Target }}" class="btn btn-primary" data-toggle="tab">{{ .tab2Name }}</a>
+                <a href="#{{ .tab3Target }}" class="btn btn-primary" data-toggle="tab">{{ .tab3Name }}</a>
               </div>
             </div>
           </div>
@@ -23,7 +24,7 @@
                 {{ $Section := .education }}
                 {{ range $Section }}
                   <div class="resume__education_item d-flex flex-nowrap">
-                    <a href="{{ .url }}">
+                    <a href="{{ .url }}" target="_blank">
                       {{ $asset := resources.Get .image }}
                       {{ $img := $asset.Resize "300x webp" }}
                       <img alt="logo" class="resume__education_item_image" src="{{ $img.RelPermalink }}" />
@@ -37,7 +38,22 @@
                 {{ $Section := .experience }}
                 {{ range $Section }}
                   <div class="resume__education_item d-flex flex-nowrap">
-                    <a href="{{ .url }}">
+                    <a href="{{ .url }}" target="_blank">
+                      {{ $asset := resources.Get .image }}
+                      {{ $img := $asset.Resize "300x webp" }}
+                      <img class="resume__education_item_image" alt="certificate" src="{{ $img.RelPermalink }}" />
+                    </a>
+                    <div>{{ .content | markdownify }}</div>
+                  </div>
+                {{ end }}
+              </div>
+
+              <!--Boardgame-->
+              <div class="resume__education tab-pane" id="{{ .tab3Target }}">
+                {{ $Section := .boardgame }}
+                {{ range $Section }}
+                  <div class="resume__education_item d-flex flex-nowrap">
+                    <a href="{{ .url }}" target="_blank">
                       {{ $asset := resources.Get .image }}
                       {{ $img := $asset.Resize "300x webp" }}
                       <img class="resume__education_item_image" alt="certificate" src="{{ $img.RelPermalink }}" />

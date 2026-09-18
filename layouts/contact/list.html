@@ -28,7 +28,7 @@
           <h3 class="breadCrumb__title">{{ .Title }}</h3>
           <nav aria-label="breadcrumb" class="d-flex justify-content-center">
             <ol class="breadcrumb align-items-center">
-              <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Kezdőlap</a></li>
               <li class="breadcrumb-item active" aria-current="page">{{ .Params.breadcrumb }}</li>
             </ol>
           </nav>
@@ -56,7 +56,7 @@
                 <img src="{{ "images/contact/location.svg" | absURL }}" alt="location" />
               </div>
             </div>
-            <h4>Office Address</h4>
+            <h4>Cím</h4>
             <p>
               {{ $address.address }}
             </p>
@@ -77,7 +77,7 @@
                 <img src="{{ "images/contact/phone.svg" | absURL }}" alt="phone" />
               </div>
             </div>
-            <h4>Phone & Email</h4>
+            <h4>Elérhetőség</h4>
             <p>
               {{ $address.phone }}<br />
               <a href="mailto:{{ $address.email }}">{{ $address.email }}</a>
@@ -99,7 +99,7 @@
                 <img src="{{ "images/contact/time.svg" | absURL }}" alt="time" />
               </div>
             </div>
-            <h4>Working Hours</h4>
+            <h4>Nyitvatartás</h4>
             <p>
               {{ $address.openingHours }}
             </p>

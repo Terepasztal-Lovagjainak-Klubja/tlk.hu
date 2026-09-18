@@ -44,7 +44,9 @@
               <div class="product-item">
                 {{ $asset := resources.Get .Params.thumbnail }}
                 {{ $img := $asset.Resize "700x webp" }}
-                <img src="{{ $img.RelPermalink }}" class="product-item-thumb" alt="product-thumb" />
+                <a href="{{ .Permalink }}">
+                    <img src="{{ $img.RelPermalink }}" class="product-item-thumb" alt="product-thumb" />
+                  </a>
                 <div class="product-item-content">
                   <span>{{ .Params.categories }}</span>
                   <h3 class="mb-0">

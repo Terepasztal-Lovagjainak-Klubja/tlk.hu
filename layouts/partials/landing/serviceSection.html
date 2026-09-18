@@ -69,7 +69,10 @@
                         </a>
                     </div>
                   </div>
-                  <div class="mt-5">{{ .content | markdownify }}</div>
+                  <div class="mt-5">
+                      <h4><a class="text-dark" href=" {{ .url }} " target="_blank">{{ .title }}</a></h4>
+                    {{ .content | markdownify }}
+                  </div>
                 </div>
               {{ end }}
             </div>
@@ -79,4 +82,3 @@
     </section>
   {{ end }}
 {{ end }}
-\
