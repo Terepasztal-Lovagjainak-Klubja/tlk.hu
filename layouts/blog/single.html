@@ -6,8 +6,8 @@
           <h3 class="breadCrumb__title">{{ .Title }}</h3>
           <nav aria-label="breadcrumb" class="d-flex justify-content-center">
             <ol class="breadcrumb align-items-center">
-              <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ .Site.Params.blogPageURL | absURL }}">All Post</a></li>
+              <li class="breadcrumb-item"><a href="{{ .Site.BaseURL }}">Kezdőlap</a></li>
+              <li class="breadcrumb-item"><a href="{{ .Site.Params.blogPageURL | absURL }}">Az egyesület éves pénzügyi beszámolói</a></li>
               <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
             </ol>
           </nav>
@@ -17,12 +17,14 @@
       <ul class="post-meta">
         <li>
           <i class="fa-solid fa-calendar-days"></i>
-          {{ .PublishDate.Format "January 2, 2006" }}
+          {{ .PublishDate.Format "2006-01-02" }}
         </li>
-        <li>
-          <i class="fa-regular fa-clock"></i>
-          {{ .ReadingTime }} mins read
-        </li>
+        {{ if .Params.readingTime }}
+          <li>
+            <i class="fa-regular fa-clock"></i>
+            {{ .ReadingTime }} mins read
+          </li>
+        {{ end }}
         {{ if .Params.tags }}
           <li>
             <i class="fa-solid fa-tag"></i>
@@ -86,6 +88,9 @@
             {{ end }}
 
             {{ .Content }}
+            {{ if .Params.pdf }}
+              <embed src="{{ .Params.pdf }}" type="application/pdf" class="pdf-embed"/>
+            {{ end }}
           </div>
         </div>
       </div>
