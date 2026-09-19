@@ -1,0 +1,4 @@
+# Pinned: gdown scrapes Drive's undocumented embeddedfolderview endpoint, so it
+# is the part of this build most likely to break when Google changes something.
+# Bump deliberately, and check a gallery still fills up afterwards.
+gdown==6.4.0

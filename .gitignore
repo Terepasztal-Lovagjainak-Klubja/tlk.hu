@@ -9,6 +9,13 @@ hugo_stats.json
 # Locally downloaded Hugo binary
 /hugo
 
+# Mirrored from Google Drive by `pnpm sync:galleries`, never committed
+/assets/images/gallery/
+
+# Python (the Drive gallery sync)
+/.venv/
+__pycache__/
+
 # Node
 /node_modules/
 /.pnpm-store/

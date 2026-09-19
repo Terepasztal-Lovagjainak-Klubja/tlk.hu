@@ -1,0 +1,23 @@
+{
+  "$comment": [
+    "Public Google Drive folders mirrored into assets/images/gallery/<name>/ by",
+    "`pnpm sync:galleries` (scripts/sync_drive_galleries.py). No API key needed —",
+    "see the Galleries section of README.md.",
+    "",
+    "name     - directory under assets/images/gallery/, and what the {{< gallery >}}",
+    "           shortcode's globalMatch points at.",
+    "folderId - the Drive folder id, or just paste the whole folder URL. The folder",
+    "           must be shared 'Anyone with the link -> Viewer'.",
+    "title    - human-readable name, for whoever edits this file.",
+    "minFiles - optional. Fail the build if fewer than this many images come back.",
+    "           Drive's public folder view truncates large folders silently, so set",
+    "           this a little below the real count on any big gallery.",
+    "",
+    "Example entry:",
+    "  { \"name\": \"kirandulas-2026\", \"folderId\": \"1AbC...\", \"title\": \"Kirándulás 2026\", \"minFiles\": 120 }",
+    "",
+    "JSON rather than YAML like the rest of data/ so the sync script can parse it",
+    "with the standard library; Hugo reads both the same way."
+  ],
+  "galleries": []
+}

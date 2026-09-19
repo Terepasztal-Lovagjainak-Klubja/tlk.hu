@@ -1,0 +1,5 @@
+[tools]
+hugo-extended = "0.139.0"
+# For scripts/sync_drive_galleries.py. gdown needs >= 3.10; pinned to match the
+# version the publish workflow installs.
+python = "3.12"

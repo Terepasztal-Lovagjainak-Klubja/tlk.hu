@@ -11,7 +11,9 @@
   ],
   "scripts": {
     "start": "hugo server --disableFastRender",
+    "dev": "pnpm sync:galleries && pnpm start",
     "build": "hugo --gc --minify",
+    "sync:galleries": "sh scripts/sync-galleries.sh",
     "clean": "rm -rf public resources"
   },
   "dependencies": {

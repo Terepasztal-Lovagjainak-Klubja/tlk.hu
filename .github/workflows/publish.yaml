@@ -9,6 +9,13 @@ on:
       - main
   workflow_dispatch:
 
+  # Picks up photos added to the Google Drive gallery folders without anyone
+  # having to push. GitHub delays scheduled runs under load and disables them
+  # entirely after 60 days with no repo activity, so treat this as best effort —
+  # workflow_dispatch is the way to force a refresh now.
+  schedule:
+    - cron: '17 3 * * *'
+
 permissions:
   contents: read
   pages: write
@@ -67,6 +74,47 @@ jobs:
       # resolves the SCSS/JS imports and the postcss-cli binary from there.
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      # Rolling caches: the run_id suffix means every run saves a fresh entry
+      # while restore-keys pulls in the most recent one. Without them each
+      # publish re-downloads every photo from Drive and re-runs every Lanczos
+      # resize, which is nearly all of the build time once galleries exist.
+      - name: Restore mirrored gallery images
+        uses: actions/cache@v4
+        with:
+          path: assets/images/gallery
+          key: drive-gallery-${{ hashFiles('data/galleries.json') }}-${{ github.run_id }}
+          restore-keys: |
+            drive-gallery-${{ hashFiles('data/galleries.json') }}-
+
+      - name: Restore Hugo image cache
+        uses: actions/cache@v4
+        with:
+          path: resources
+          key: hugo-resources-${{ github.run_id }}
+          restore-keys: |
+            hugo-resources-
+
+      # gdown reads Drive's public folder view directly, so there is no API key,
+      # no GCP project and no repository secret to keep alive after whoever set
+      # this up moves on.
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install gdown
+        run: pip install -r scripts/requirements.txt
+
+      # Mirrors the public Drive folders listed in data/galleries.json into
+      # assets/images/gallery/, where the {{< gallery >}} shortcode can resize
+      # them like any other local image. A failure here fails the publish on
+      # purpose: shipping half-empty galleries is worse, and the previous deploy
+      # stays live either way.
+      - name: Sync galleries from Google Drive
+        run: python3 scripts/sync_drive_galleries.py
 
       - name: Configure Pages
         id: pages
