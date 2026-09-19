@@ -20,6 +20,11 @@ mime type and no pagination:
 
 Nothing downloaded here is committed: assets/images/gallery/ is gitignored.
 
+For each gallery this also writes content/product/<name>.md the first time it
+sees that gallery, pre-filled with frontmatter and a {{< gallery >}} shortcode
+pointing at the synced images. It never overwrites an existing content file —
+that file is yours after creation, in case you add real copy to it.
+
 Usage:
     python3 scripts/sync_drive_galleries.py
 """
@@ -30,6 +35,7 @@ import json
 import re
 import sys
 import unicodedata
+from datetime import datetime
 from pathlib import Path
 
 try:
@@ -39,7 +45,8 @@ except ModuleNotFoundError:  # reported properly in main(), and only if needed
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "data" / "galleries.json"
-OUTPUT_ROOT = ROOT / "assets" / "images" / "gallery"
+OUTPUT_ROOT = ROOT / "assets" / "images" / "product"
+CONTENT_ROOT = ROOT / "content" / "product"
 
 # Formats Hugo's image processing can actually read. HEIC is deliberately absent:
 # Hugo cannot decode it, so an iPhone upload would break the build. Those files
@@ -106,6 +113,75 @@ def list_folder(folder_id: str) -> list[tuple[str, str]]:
     # skip_download hands back GoogleDriveFileToDownload(id, path, local_path);
     # path is prefixed with the Drive folder name, which we do not want to keep.
     return [(entry.id, Path(entry.path).name) for entry in entries or []]
+
+
+def yaml_quote(text: str) -> str:
+    """Double-quote a scalar for YAML frontmatter, escaping embedded quotes."""
+    return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def title_from_name(name: str) -> str:
+    """Fall back to a readable title if the gallery config doesn't set one."""
+    words = re.split(r"[-_]+", name)
+    return " ".join(w.capitalize() for w in words if w)
+
+
+def hugo_date_now() -> str:
+    """RFC3339 timestamp in the same shape Hugo's own archetypes produce."""
+    now = datetime.now().astimezone()
+    offset = now.strftime("%z")  # e.g. "+0200"
+    offset = f"{offset[:3]}:{offset[3:]}"  # -> "+02:00"
+    return now.strftime("%Y-%m-%dT%H:%M:%S.000") + offset
+
+
+def write_content_page(gallery: dict, name: str, planned: list[tuple[str, str]]) -> str | None:
+    """Create content/product/<name>.md the first time this gallery is seen.
+
+    Returns a short status string for the summary line, or None if there was
+    nothing to do (file already existed, or there are no images yet to build
+    a thumbnail from).
+    """
+    target_path = CONTENT_ROOT / f"{name}.md"
+    if target_path.exists():
+        return None  # never overwrite — this file is yours once it exists
+
+    if not planned:
+        return "content page skipped (no images yet)"
+
+    title = gallery.get("title") or title_from_name(name)
+    thumbnail = f"images/product/{name}/" + min(fname for _, fname in planned)
+
+    categories = gallery.get("categories") or gallery.get("category")
+    if isinstance(categories, str):
+        categories = [categories]
+    categories_yaml = (
+        "\n".join(f"  - {yaml_quote(c)}" for c in categories) if categories else ""
+    )
+
+    frontmatter = (
+        "---\n"
+        f"title: {yaml_quote(title)}\n"
+        f"date: {hugo_date_now()}\n"
+        f"thumbnail: {thumbnail}\n"
+        "categories:"
+        + (f"\n{categories_yaml}" if categories_yaml else "")
+        + "\n"
+        "---\n\n"
+        "{{< gallery\n"
+        '  globalMatch="images/product/' + name + '/*"\n'
+        '  sortOrder="asc"\n'
+        '  rowHeight="200"\n'
+        '  margins="5"\n'
+        '  thumbnailResizeOptions="600x600 q90 Lanczos"\n'
+        '  previewType="blur"\n'
+        "  embedPreview=true\n"
+        "  loadJQuery=true\n"
+        ">}}\n"
+    )
+
+    CONTENT_ROOT.mkdir(parents=True, exist_ok=True)
+    target_path.write_text(frontmatter, encoding="utf-8")
+    return f"content page created ({target_path.relative_to(ROOT)})"
 
 
 def sync_gallery(gallery: dict) -> str:
@@ -179,9 +255,13 @@ def sync_gallery(gallery: dict) -> str:
             existing.unlink()
             removed += 1
 
+    content_note = write_content_page(gallery, name, planned)
+
     note = f", {len(skipped)} non-image skipped" if skipped else ""
     if skipped:
         note += f" ({', '.join(sorted(skipped)[:5])}{'…' if len(skipped) > 5 else ''})"
+    if content_note:
+        note += f", {content_note}"
     return (
         f"  {name}: {len(planned)} image(s) — {downloaded} downloaded, "
         f"{len(planned) - downloaded} cached, {removed} removed{note}"
