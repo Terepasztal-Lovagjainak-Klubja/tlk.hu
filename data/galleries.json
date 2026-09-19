@@ -8,7 +8,7 @@
     "           shortcode's globalMatch points at.",
     "folderId - the Drive folder id, or just paste the whole folder URL. The folder",
     "           must be shared 'Anyone with the link -> Viewer'.",
-    "title    - human-readable name, for whoever edits this file.",
+    "title    - human-readable name, this will be the title of the gallery on the website",
     "minFiles - optional. Fail the build if fewer than this many images come back.",
     "           Drive's public folder view truncates large folders silently, so set",
     "           this a little below the real count on any big gallery.",
