@@ -4,7 +4,7 @@
     "`pnpm sync:galleries` (scripts/sync_drive_galleries.py). No API key needed —",
     "see the Galleries section of README.md.",
     "",
-    "name     - directory under assets/images/gallery/, and what the {{< gallery >}}",
+    "name     - directory under assets/images/product/, and what the {{< gallery >}}",
     "           shortcode's globalMatch points at.",
     "folderId - the Drive folder id, or just paste the whole folder URL. The folder",
     "           must be shared 'Anyone with the link -> Viewer'.",
