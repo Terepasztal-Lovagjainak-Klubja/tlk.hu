@@ -109,12 +109,15 @@ jobs:
         run: pip install -r scripts/requirements.txt
 
       # Mirrors the public Drive folders listed in data/galleries.json into
-      # assets/images/gallery/, where the {{< gallery >}} shortcode can resize
+      # product/gallery/, where the {{< gallery >}} shortcode can resize
       # them like any other local image. A failure here fails the publish on
       # purpose: shipping half-empty galleries is worse, and the previous deploy
       # stays live either way.
       - name: Sync galleries from Google Drive
         run: python3 scripts/sync_drive_galleries.py
+
+      - name: Sync pdfs from Google Drive
+        run: python3 scripts/get_pdf.py
 
       - name: Configure Pages
         id: pages
